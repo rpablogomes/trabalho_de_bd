@@ -1,0 +1,14 @@
+<div>
+    <div>Nome:</div>
+    <input class="register" name="nome" type="text" value="{{usuario.nome}}">
+    <input hidden="hidden" name="id_usuario" type="number" value="{{usuario.id_usuario}}" />
+</div>
+<div>Classes:</div>
+<select id="select" class="register" name="id_funcao">
+    {% for funcao in funcoes %}
+        <option value="{{funcao.id_funcao}}" {% if usuario.id_funcao == funcao.id_funcao%} selected="selected" {% endif %}>{{funcao.funcao_nome}}</option>
+    {% endfor %}
+</select>
+</div>
+<div class="buttons">
+    <button class="button" type="submit">Submit</button>

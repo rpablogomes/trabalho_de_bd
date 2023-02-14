@@ -1,0 +1,84 @@
+{% extends "../layout.njk" %}
+
+{% block content %}
+    <div class="table">
+
+        <div class="header">
+            <button class="seeButton" onclick="location.href='/usuario/register'">Novo Usuario</button>
+            <form action="/usuarios" method="GET">
+                <input class="input" type="text" name="filter" placeholder="Filtrar por nome">
+                <button class="seeButton" type="submit">Filtrar</button>
+            </form>
+        </div>
+
+        <table >
+            <thead>
+                <tr class="trUsuarios">
+                    <th>
+                        <div>Nome</div>
+                    </th>
+                    <th>
+                        <div>Função</div>
+                    </th>
+                    <th>
+                        <div>Endereço</div>
+                    </th>
+                    <th>
+                        <div>Action</div>
+                    </th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+                <tr class="trUsuarios">
+                    <td >
+                        <div class="usuarioOnTable">
+                            <div>Fulano de Tal}</div>
+                        </div>
+                    </td>
+                    <td>
+
+                        <div class="classes">Médico</div>
+
+                    </td>
+                    <td>
+                        <div>Rua Minas Gerais, 32</div>
+                    </td>
+                    <td>
+                        <div class="DIVseeButton">
+                            <a class="seeButton" href="/usuario/1">See</a>
+                        </div>
+                    </td>
+                </tr>
+                {% for usuario in usuarios %}
+                    <tr class="trUsuarios">
+                        <td >
+                            <div class="usuarioOnTable">
+                                <div>{{usuario.nome}}</div>
+                            </div>
+                        </td>
+                        <td>
+
+                            <div class="classes">{{usuario.funcao_nome}}</div>
+
+                        </td>
+                        <td>
+                            <div>{{usuario.endereco}}</div>
+                        </td>
+                        <td>
+                            <div class="DIVseeButton">
+                                <a class="seeButton" href="/usuario/{{usuario.id_usuario}}">See</a>
+                            </div>
+                        </td>
+                    </tr>
+
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+        {# <div id="pagination" data-totalpage="{{totalPage}}" data-page="{{page}}" data-filter="{{filter}}"></div> #}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+    <div class="table">
+        <div class="header">
+            <button class="seeButton" onclick="location.href='/endereco/register'">Novo Endereço</button>
+        </div>
+        <table >
+            <thead>
+                <tr class="trUsuarios">
+                    <th>
+                        <div>Endereco</div>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for endereco in enderecos %}
+                    <tr class="trUsuarios">
+                        <td >
+                            <div class="usuarioOnTable">
+                                <div>
+                                {{endereco.endereco}}
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

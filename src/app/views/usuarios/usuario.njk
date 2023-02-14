@@ -1,0 +1,35 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+    <div class="Card">
+
+        <section class="details">
+            <h1>Details</h1>
+            <div>
+                <div>Name:</div>
+                <div>{{usuario.nome}}</div>
+            </div>
+
+            <div>
+                <div>Classes:</div>
+                <div>
+
+                    <span class="classes">{{usuario.funcao_nome}}</span>
+
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="button" onclick=window.location.href="/usuario/{{usuario.id_usuario}}/edit">Edit</button>
+
+                <form id="submitDelete" class="button" action="/usuario?_method=DELETE" method="POST">
+                    <input hidden name="id" value="{{usuario.id_usuario}}" >
+                    <button id="delete" type="submit">Delete</button>
+                </form>
+            </div>
+
+        </section>
+    </div>
+
+{% endblock %}
